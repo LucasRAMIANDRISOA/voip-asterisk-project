@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Reinitialiser - Dashboard Asterisk</title>
+    <style>
+        :root { --primary: #2563eb; --dark: #1e293b; --gray: #64748b; --bg: #f1f5f9; --green: #16a34a; --red: #dc2626; --border: #e2e8f0; }
+        * { box-sizing: border-box; }
+        body { font-family: -apple-system, "Segoe UI", Roboto, Arial, sans-serif; margin: 0; background: var(--bg); color: var(--dark); }
+        .container { max-width: 480px; margin: 60px auto; padding: 0 20px; }
+        .card { background: white; border-radius: 10px; border: 1px solid var(--border); padding: 32px; }
+        h1 { font-size: 20px; margin: 0 0 12px; }
+        p.warning { font-size: 14px; color: var(--gray); margin-bottom: 20px; line-height: 1.5; }
+        label { display: block; font-size: 13px; color: var(--gray); margin-bottom: 6px; font-weight: 500; }
+        input { width: 100%; padding: 10px 12px; border: 1px solid var(--border); border-radius: 6px; font-size: 14px; margin-bottom: 18px; }
+        button { width: 100%; padding: 12px; background: var(--red); color: white; border: none; border-radius: 6px; font-size: 14px; font-weight: 600; cursor: pointer; }
+        button:hover { opacity: 0.9; }
+        .message { padding: 12px 16px; border-radius: 6px; margin-bottom: 20px; font-size: 14px; }
+        .message.success { background: #dcfce7; color: var(--green); }
+        .message.error { background: #fee2e2; color: var(--red); }
+        a.back { display: inline-block; margin-top: 16px; color: var(--primary); text-decoration: none; font-size: 14px; }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <div class="card">
+            <h1>Reinitialiser l'historique</h1>
+            <p class="warning">
+                Ceci efface definitivement : le journal des appels (CDR), l'historique de facturation, et l'historique des recharges.
+                Les soldes des comptes seront remis a zero. Les codes de recharge non utilises restent intacts.
+                Cette action est irreversible.
+            </p>
+
+            {% if message %}
+            <div class="message {{ 'success' if success else 'error' }}">{{ message }}</div>
+            {% endif %}
+
+            <form method="POST">
+                <label>Tape EFFACER pour confirmer</label>
+                <input type="text" name="confirm" placeholder="EFFACER" required>
+                <button type="submit">Reinitialiser maintenant</button>
+            </form>
+            <a class="back" href="/">&larr; Retour au dashboard</a>
+        </div>
+    </div>
+</body>
+</html>

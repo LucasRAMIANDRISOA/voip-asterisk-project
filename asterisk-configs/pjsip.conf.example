@@ -1,0 +1,73 @@
+[transport-udp]
+type=transport
+protocol=udp
+bind=0.0.0.0:5060
+
+[endpoint-template](!)
+type=endpoint
+context=internal
+disallow=all
+allow=ulaw
+allow=alaw
+allow=h264
+allow=vp8
+max_video_streams=1
+direct_media=no
+transport=transport-udp
+rtp_symmetric=yes
+force_rport=yes
+rewrite_contact=yes
+
+;===== SUPPORT TECHNIQUE (1001) =====
+[1001](endpoint-template)
+auth=auth1001
+aors=1001
+callerid=Support Technique <1001>
+
+[auth1001]
+type=auth
+auth_type=userpass
+username=1001
+password=CHANGE_ME
+
+[1001]
+type=aor
+max_contacts=5
+remove_existing=yes
+qualify_frequency=30
+
+;===== COMPTABILITE (1002) =====
+[1002](endpoint-template)
+auth=auth1002
+aors=1002
+callerid=Comptabilite <1002>
+
+[auth1002]
+type=auth
+auth_type=userpass
+username=1002
+password=CHANGE_ME
+
+[1002]
+type=aor
+max_contacts=5
+remove_existing=yes
+qualify_frequency=30
+
+;===== SERVICE COMMERCIAL (1003) =====
+[1003](endpoint-template)
+auth=auth1003
+aors=1003
+callerid=Service Commercial <1003>
+
+[auth1003]
+type=auth
+auth_type=userpass
+username=1003
+password=CHANGE_ME
+
+[1003]
+type=aor
+max_contacts=5
+remove_existing=yes
+qualify_frequency=30

@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Generer des codes - Dashboard Asterisk</title>
+    <style>
+        :root { --primary: #2563eb; --dark: #1e293b; --gray: #64748b; --bg: #f1f5f9; --green: #16a34a; --red: #dc2626; --border: #e2e8f0; }
+        * { box-sizing: border-box; }
+        body { font-family: -apple-system, "Segoe UI", Roboto, Arial, sans-serif; margin: 0; background: var(--bg); color: var(--dark); }
+        .container { max-width: 480px; margin: 60px auto; padding: 0 20px; }
+        .card { background: white; border-radius: 10px; border: 1px solid var(--border); padding: 32px; }
+        h1 { font-size: 20px; margin: 0 0 24px; }
+        label { display: block; font-size: 13px; color: var(--gray); margin-bottom: 6px; font-weight: 500; }
+        select, input { width: 100%; padding: 10px 12px; border: 1px solid var(--border); border-radius: 6px; font-size: 14px; margin-bottom: 18px; }
+        button { width: 100%; padding: 12px; background: var(--primary); color: white; border: none; border-radius: 6px; font-size: 14px; font-weight: 600; cursor: pointer; }
+        button:hover { opacity: 0.9; }
+        .message { padding: 12px 16px; border-radius: 6px; margin-bottom: 20px; font-size: 14px; background: #dcfce7; color: var(--green); }
+        a.download { display: block; text-align: center; margin-bottom: 20px; background: var(--dark); color: white; text-decoration: none; padding: 10px; border-radius: 6px; font-size: 14px; font-weight: 600; }
+        a.back { display: inline-block; margin-top: 16px; color: var(--primary); text-decoration: none; font-size: 14px; }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <div class="card">
+            <h1>Generer des codes de recharge</h1>
+
+            {% if message %}
+            <div class="message">{{ message }}</div>
+            <a class="download" href="/download-codes/{{ filename }}">Telecharger le fichier ({{ filename }})</a>
+            {% endif %}
+
+            <form method="POST">
+                <label>Montant du code</label>
+                <select name="montant" required>
+                    <option value="1000">1000 Ar</option>
+                    <option value="2000">2000 Ar</option>
+                    <option value="5000">5000 Ar</option>
+                </select>
+
+                <label>Nombre de codes a generer</label>
+                <input type="number" name="quantite" min="1" max="100" value="5" required>
+
+                <button type="submit">Generer les codes</button>
+            </form>
+            <a class="back" href="/">&larr; Retour au dashboard</a>
+        </div>
+    </div>
+</body>
+</html>
