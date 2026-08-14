@@ -20,6 +20,15 @@ Projet développé sur **Ubuntu 26.04 LTS**, conçu comme une alternative légè
 - [Licence](#licence)
 
 ---
+## Captures d'écran
+
+![Tableau de bord principal](./docs/dashboard-principal.png)
+![Tableau de bord principal](./docs/dashboard-principal2.png)
+![Page de génération](./docs/page-de-génération-de-codes.png)
+![Page de recharge](./docs/page-de-recharge.png)
+
+
+---
 
 ## Fonctionnalités
 
@@ -223,16 +232,6 @@ Via le dashboard (`/recharge`) ou en ligne de commande :
 ```bash
 python3 billing-scripts/redeem_code.py 1001 XXXX-XXXX-XXXX
 ```
-
----
-
-## Captures d'écran
-
-![Tableau de bord principal](./docs/dashboard-principal.png)
-![Tableau de bord principal](./docs/dashboard-principal2.png)
-![Page de génération](./docs/page-de-génération-de-codes.png)
-![Page de recharge](./docs/page-de-recharge.png)
-
 
 ---
 
