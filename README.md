@@ -24,6 +24,10 @@ Projet développé sur **Ubuntu 26.04 LTS**, conçu comme une alternative légè
 
 ![Tableau de bord principal](./docs/dashboard-principal.png)
 ![Tableau de bord principal](./docs/dashboard-principal2.png)
+![Architecture](./docs/architecture.png)
+![configuration](./docs/config-sip.png)
+![configuration](./docs/dialplan.png)
+![configuration](./docs/verification-du-meet-aevc-les-3-sip.png)
 ![Page de génération](./docs/page-de-génération-de-codes.png)
 ![Page de recharge](./docs/page-de-recharge.png)
 
